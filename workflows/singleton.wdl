@@ -167,6 +167,7 @@ workflow humanwgs_singleton {
     'sv_DEL_count': [downstream.stat_sv_DEL_count],
     'sv_INS_count': [downstream.stat_sv_INS_count],
     'sv_INV_count': [downstream.stat_sv_INV_count],
+    'sv_INVBND_count': [downstream.stat_sv_INVBND_count],
     'sv_BND_count': [downstream.stat_sv_BND_count],
     'cnv_DUP_count': [upstream.stat_cnv_DUP_count],
     'cnv_DEL_count': [upstream.stat_cnv_DEL_count],
@@ -244,15 +245,15 @@ workflow humanwgs_singleton {
     String stat_phase_block_ng50 = downstream.stat_phase_block_ng50
 
     # cpg_pileup outputs
-    File?   cpg_combined_bed        = downstream.cpg_combined_bed
-    File?   cpg_combined_bed_index  = downstream.cpg_combined_bed_index
-    File?   cpg_hap1_bed            = downstream.cpg_hap1_bed
-    File?   cpg_hap1_bed_index      = downstream.cpg_hap1_bed_index
-    File?   cpg_hap2_bed            = downstream.cpg_hap2_bed
-    File?   cpg_hap2_bed_index      = downstream.cpg_hap2_bed_index
-    File?   cpg_combined_bw         = downstream.cpg_combined_bw
-    File?   cpg_hap1_bw             = downstream.cpg_hap1_bw
-    File?   cpg_hap2_bw             = downstream.cpg_hap2_bw
+    File?  cpg_combined_bed        = downstream.cpg_combined_bed
+    File?  cpg_combined_bed_index  = downstream.cpg_combined_bed_index
+    File?  cpg_hap1_bed            = downstream.cpg_hap1_bed
+    File?  cpg_hap1_bed_index      = downstream.cpg_hap1_bed_index
+    File?  cpg_hap2_bed            = downstream.cpg_hap2_bed
+    File?  cpg_hap2_bed_index      = downstream.cpg_hap2_bed_index
+    File?  cpg_combined_bw         = downstream.cpg_combined_bw
+    File?  cpg_hap1_bw             = downstream.cpg_hap1_bw
+    File?  cpg_hap2_bw             = downstream.cpg_hap2_bw
     String stat_cpg_hap1_count     = downstream.stat_hap1_cpg_count
     String stat_cpg_hap2_count     = downstream.stat_hap2_cpg_count
     String stat_cpg_combined_count = downstream.stat_combined_cpg_count
@@ -262,11 +263,12 @@ workflow humanwgs_singleton {
     File phased_sv_vcf_index = downstream.phased_sv_vcf_index
 
     # sv stats
-    String stat_sv_DUP_count = downstream.stat_sv_DUP_count
-    String stat_sv_DEL_count = downstream.stat_sv_DEL_count
-    String stat_sv_INS_count = downstream.stat_sv_INS_count
-    String stat_sv_INV_count = downstream.stat_sv_INV_count
-    String stat_sv_BND_count = downstream.stat_sv_BND_count
+    String stat_sv_DUP_count    = downstream.stat_sv_DUP_count
+    String stat_sv_DEL_count    = downstream.stat_sv_DEL_count
+    String stat_sv_INS_count    = downstream.stat_sv_INS_count
+    String stat_sv_INV_count    = downstream.stat_sv_INV_count
+    String stat_sv_INVBND_count = downstream.stat_sv_INVBND_count
+    String stat_sv_BND_count    = downstream.stat_sv_BND_count
 
     # small variant outputs
     File phased_small_variant_vcf       = downstream.phased_small_variant_vcf
@@ -312,11 +314,11 @@ workflow humanwgs_singleton {
     String stat_cnv_DEL_sum     = upstream.stat_cnv_DEL_sum
 
     # PGx outputs
-    File pbstarphase_json        = downstream.pbstarphase_json
-    File pharmcat_match_json     = downstream.pharmcat_match_json
-    File pharmcat_phenotype_json = downstream.pharmcat_phenotype_json
-    File pharmcat_report_html    = downstream.pharmcat_report_html
-    File pharmcat_report_json    = downstream.pharmcat_report_json
+    File  pbstarphase_json        = downstream.pbstarphase_json
+    File? pharmcat_match_json     = downstream.pharmcat_match_json
+    File? pharmcat_phenotype_json = downstream.pharmcat_phenotype_json
+    File? pharmcat_report_html    = downstream.pharmcat_report_html
+    File? pharmcat_report_json    = downstream.pharmcat_report_json
 
     # tertiary analysis outputs
     File? pedigree                                      = write_ped_phrank.pedigree
@@ -332,6 +334,6 @@ workflow humanwgs_singleton {
 
     # workflow metadata
     String workflow_name    = "humanwgs_family"
-    String workflow_version = "v2.0.7" + if defined(debug_version) then "~{"-" + debug_version}" else ""
+    String workflow_version = "v3.0.0-alpha1" + if defined(debug_version) then "~{"-" + debug_version}" else ""
   }
 }
