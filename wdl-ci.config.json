@@ -2091,7 +2091,7 @@
                 "task_start_index": 0,
                 "tasks_per_shard": 8,
                 "total_deepvariant_tasks": 64,
-                "docker_image": "google/deepvariant:1.6.1",
+                "docker_image": "google/deepvariant:1.8.0",
                 "runtime_attributes": "${default_runtime_attributes}"
               },
               "output_tests": {
@@ -2132,7 +2132,7 @@
                   "${resources_file_path}/deepvariant_call_variants_cpu/input/HG002.56.example_tfrecords.tar.gz"
                 ],
                 "total_deepvariant_tasks": 64,
-                "docker_image": "google/deepvariant:1.6.1",
+                "docker_image": "google/deepvariant:1.8.0",
                 "runtime_attributes": "${default_runtime_attributes}"
               },
               "output_tests": {
@@ -2166,7 +2166,7 @@
                   "${resources_file_path}/deepvariant_call_variants_gpu/input/HG002.56.example_tfrecords.tar.gz"
                 ],
                 "total_deepvariant_tasks": 64,
-                "docker_image": "google/deepvariant:1.6.1-gpu",
+                "docker_image": "google/deepvariant:1.8.0-gpu",
                 "runtime_attributes": "${default_runtime_attributes}"
               },
               "output_tests": {
@@ -2189,6 +2189,16 @@
               "inputs": {
                 "sample_id": "HG002",
                 "tfrecords_tar": "${resources_file_path}/deepvariant_postprocess_variants/input/HG002.GRCh38.call_variants_output.tar.gz",
+                "example_tfrecord_tars": [
+                  "${resources_file_path}/deepvariant_call_variants_cpu/input/HG002.0.example_tfrecords.tar.gz",
+                  "${resources_file_path}/deepvariant_call_variants_cpu/input/HG002.8.example_tfrecords.tar.gz",
+                  "${resources_file_path}/deepvariant_call_variants_cpu/input/HG002.16.example_tfrecords.tar.gz",
+                  "${resources_file_path}/deepvariant_call_variants_cpu/input/HG002.24.example_tfrecords.tar.gz",
+                  "${resources_file_path}/deepvariant_call_variants_cpu/input/HG002.32.example_tfrecords.tar.gz",
+                  "${resources_file_path}/deepvariant_call_variants_cpu/input/HG002.40.example_tfrecords.tar.gz",
+                  "${resources_file_path}/deepvariant_call_variants_cpu/input/HG002.48.example_tfrecords.tar.gz",
+                  "${resources_file_path}/deepvariant_call_variants_cpu/input/HG002.56.example_tfrecords.tar.gz"
+                ],
                 "nonvariant_site_tfrecord_tars": [
                   "${resources_file_path}/deepvariant_postprocess_variants/input/HG002.0.nonvariant_site_tfrecords.tar.gz",
                   "${resources_file_path}/deepvariant_postprocess_variants/input/HG002.8.nonvariant_site_tfrecords.tar.gz",
@@ -2203,7 +2213,7 @@
                 "ref_index": "${ref_index}",
                 "ref_name": "${ref_name}",
                 "total_deepvariant_tasks": 64,
-                "docker_image": "google/deepvariant:1.6.1",
+                "docker_image": "google/deepvariant:1.8.0",
                 "runtime_attributes": "${default_runtime_attributes}"
               },
               "output_tests": {
